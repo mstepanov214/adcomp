@@ -11,10 +11,9 @@ Extension provides explorer context menu option to create Angular Dart component
 ```
 
 ```dart
-/// created_component.dart
-
 import 'package:angular/angular.dart';
 
+///
 @Component(
   selector: 'created-component',
   templateUrl: 'created_component.html',
@@ -22,7 +21,9 @@ import 'package:angular/angular.dart';
   directives: [coreDirectives],
   providers: [],
 )
-class CreatedComponent {}
+class CreatedComponent {
+
+}
 ```
 
 Intended to be used with the [sass_builder](https://pub.dev/packages/sass_builder) package.

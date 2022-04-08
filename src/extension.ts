@@ -38,15 +38,13 @@ export function activate(context: vscode.ExtensionContext) {
         const textDocument = await vscode.workspace.openTextDocument(dartFile);
         const editor = await vscode.window.showTextDocument(textDocument);
         await editor.edit((editBuilder) => {
-          editBuilder.insert(
-            editor.selection.active,
-            "import 'package:angular/angular.dart';\nimport 'package:angular_forms/angular_forms.dart';\n\n"
-          );
+          editBuilder.insert(editor.selection.active, "import 'package:angular/angular.dart';\n\n");
         });
         const selector = jsConvert.toKebabCase(name);
         const className = jsConvert.toPascalCase(name);
         const adCompSnippet = new vscode.SnippetString(
           [
+            '/// $1',
             '@Component(',
             `\tselector: '${selector}',`,
             `\ttemplateUrl: '${name}.html',`,
@@ -55,7 +53,7 @@ export function activate(context: vscode.ExtensionContext) {
             '\tproviders: [],',
             ')',
             `class ${className} {`,
-            '\t$1',
+            '\t$2',
             '}',
           ].join('\n')
         );
