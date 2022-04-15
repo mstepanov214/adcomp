@@ -21,7 +21,7 @@
 		"commands": [
 			{
 				"command": "adcomp.createAngularDartComponent",
-				"title": "Create Angular Dart component"
+				"title": "New Angular Dart component"
 			}
 		],
 		"menus": {
@@ -29,7 +29,7 @@
 				{
 					"when": "explorerResourceIsFolder",
 					"command": "adcomp.createAngularDartComponent",
-					"group": "navigation"
+					"group": "navigation@7"
 				}
 			]
 		}
