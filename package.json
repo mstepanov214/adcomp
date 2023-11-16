@@ -2,7 +2,7 @@
 	"name": "adcomp",
 	"displayName": "adcomp",
 	"description": "Quick way to create AngularDart components",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/mstepanov214/adcomp"
@@ -10,8 +10,13 @@
 	"engines": {
 		"vscode": "^1.65.0"
 	},
+	"keywords": [
+		"dart",
+		"angulardart"
+	],
 	"categories": [
-		"Other"
+		"Snippets",
+		"Programming Languages"
 	],
 	"activationEvents": [
 		"onCommand:adcomp.createAngularDartComponent"
@@ -41,7 +46,7 @@
 		"pretest": "yarn run compile && yarn run lint",
 		"lint": "eslint src --ext ts",
 		"test": "node ./out/test/runTest.js",
-		"package": "vsce package --yarn"
+		"package": "vsce package --yarn -o adcomp.vsix"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.2.0",
