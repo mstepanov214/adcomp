@@ -1,7 +1,7 @@
 {
 	"name": "adcomp",
 	"displayName": "adcomp",
-	"description": "Quick way to create Angular Dart components",
+	"description": "Quick way to create AngularDart components",
 	"version": "0.0.1",
 	"repository": {
 		"type": "git",
@@ -21,7 +21,7 @@
 		"commands": [
 			{
 				"command": "adcomp.createAngularDartComponent",
-				"title": "New Angular Dart component"
+				"title": "New AngularDart component"
 			}
 		],
 		"menus": {
