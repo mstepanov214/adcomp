@@ -18,12 +18,15 @@ export function activate(context: vscode.ExtensionContext) {
       if (name === undefined) {
         return;
       }
-      const dartFile = vscode.Uri.file(path.join(args.path, name, `${name}.dart`));
+      const dartFileUri = vscode.Uri.file(path.join(args.path, name, `${name}.dart`));
+      const styleSourceExtension = vscode.workspace
+        .getConfiguration()
+        .get<string>('adcomp.styleSourceExtension');
 
       const fileUris = [
-        dartFile,
+        dartFileUri,
         vscode.Uri.file(path.join(args.path, name, `${name}.html`)),
-        vscode.Uri.file(path.join(args.path, name, `${name}.scss`)),
+        vscode.Uri.file(path.join(args.path, name, `${name}.${styleSourceExtension}`)),
       ];
       try {
         await vscode.workspace.fs.stat(vscode.Uri.parse(path.join(args.path, name)));
@@ -35,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
         }
         await vscode.workspace.applyEdit(wsedit);
 
-        const textDocument = await vscode.workspace.openTextDocument(dartFile);
+        const textDocument = await vscode.workspace.openTextDocument(dartFileUri);
         const editor = await vscode.window.showTextDocument(textDocument);
         await editor.edit((editBuilder) => {
           editBuilder.insert(editor.selection.active, "import 'package:angular/angular.dart';\n\n");

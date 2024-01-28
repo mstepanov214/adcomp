@@ -24,6 +24,22 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"configuration": {
+			"title": "adcomp",
+			"properties": {
+				"adcomp.styleSourceExtension": {
+					"description": "Specifies the extension of the component's style source file",
+					"type": "string",
+					"default": "css",
+					"enum": ["css", "scss", "sass"],
+					"enumDescriptions": [
+						"Create a component with a .css style extension.",
+						"Create a component with a .scss style extension (if you are using a preprocessor).",
+						"Create a component with a .sass style extension (if you are using a preprocessor)."
+					]
+				}
+			}
+		},
 		"commands": [
 			{
 				"command": "adcomp.createAngularDartComponent",
