@@ -2,7 +2,7 @@
 	"name": "adcomp",
 	"displayName": "adcomp",
 	"description": "Quick way to create AngularDart components",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"publisher": "mstepanov214",
 	"repository": {
 		"type": "git",
@@ -31,7 +31,11 @@
 					"description": "Specifies the extension of the component's style source file",
 					"type": "string",
 					"default": "css",
-					"enum": ["css", "scss", "sass"],
+					"enum": [
+						"css",
+						"scss",
+						"sass"
+					],
 					"enumDescriptions": [
 						"Create a component with a .css style extension.",
 						"Create a component with a .scss style extension (if you are using a preprocessor).",
