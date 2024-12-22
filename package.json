@@ -39,6 +39,11 @@
 						"Create a component with a .scss style extension (if you are using a preprocessor).",
 						"Create a component with a .sass style extension (if you are using a preprocessor)."
 					]
+				},
+				"adcomp.addComment": {
+					"description": "Add a comment section for the component",
+					"type": "boolean",
+					"default": true
 				}
 			}
 		},

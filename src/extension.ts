@@ -7,10 +7,10 @@ export function activate(context: vscode.ExtensionContext) {
     'adcomp.createAngularDartComponent',
     async (args: { path: string }) => {
       const name = await vscode.window.showInputBox({
-        placeHolder: 'Enter component directory name...',
+        placeHolder: 'Enter the component directory name...',
         validateInput: (value: string) => {
           if (jsConvert.toSnakeCase(value) !== value) {
-            return 'Component directory name must be a snake case string';
+            return 'The component directory name must be a snake case string';
           }
           return null;
         },
@@ -18,11 +18,11 @@ export function activate(context: vscode.ExtensionContext) {
       if (name === undefined) {
         return;
       }
+      const config = vscode.workspace.getConfiguration();
+      const styleSourceExtension = config.get<string>('adcomp.styleSourceExtension');
+      const addComment = config.get<boolean>('adcomp.addComment');
+      
       const dartFileUri = vscode.Uri.file(path.join(args.path, name, `${name}.dart`));
-      const styleSourceExtension = vscode.workspace
-        .getConfiguration()
-        .get<string>('adcomp.styleSourceExtension');
-
       const fileUris = [
         dartFileUri,
         vscode.Uri.file(path.join(args.path, name, `${name}.html`)),
@@ -47,7 +47,7 @@ export function activate(context: vscode.ExtensionContext) {
         const className = jsConvert.toPascalCase(name);
         const adCompSnippet = new vscode.SnippetString(
           [
-            '/// $1',
+            ...(addComment ? ['/// $1'] : []),
             '@Component(',
             `\tselector: '${selector}',`,
             `\ttemplateUrl: '${name}.html',`,
@@ -56,7 +56,7 @@ export function activate(context: vscode.ExtensionContext) {
             '\tproviders: [],',
             ')',
             `class ${className} {`,
-            '\t$2',
+            addComment ? '\t$2' : '\t$1',
             '}',
           ].join('\n')
         );
