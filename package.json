@@ -1,92 +1,92 @@
 {
-	"name": "adcomp",
-	"displayName": "adcomp",
-	"description": "Quick way to create AngularDart components",
-	"version": "0.3.0",
-	"publisher": "mstepanov214",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/mstepanov214/adcomp"
-	},
-	"engines": {
-		"vscode": "^1.75.0",
-		"node": ">=18.0.0"
-	},
-	"keywords": [
-		"dart",
-		"angulardart"
-	],
-	"categories": [
-		"Snippets",
-		"Programming Languages"
-	],
-	"main": "./out/extension.js",
-	"contributes": {
-		"configuration": {
-			"title": "adcomp",
-			"properties": {
-				"adcomp.styleExtension": {
-					"description": "Specifies the extension of the component's style file",
-					"type": "string",
-					"default": "css",
-					"enum": [
-						"css",
-						"scss",
-						"sass"
-					],
-					"enumDescriptions": [
-						"Use .css as the style file extension.",
-						"Use .scss as the style file extension (for preprocessors).",
-						"Use .sass as the style file extension (for preprocessors)."
-					]
-				},
-				"adcomp.includeComments": {
-					"description": "Includes a comment section in the generated component",
-					"type": "boolean",
-					"default": true
-				}
-			}
-		},
-		"commands": [
-			{
-				"command": "adcomp.createAngularDartComponent",
-				"title": "New AngularDart component"
-			}
-		],
-		"menus": {
-			"explorer/context": [
-				{
-					"when": "explorerResourceIsFolder",
-					"command": "adcomp.createAngularDartComponent",
-					"group": "navigation@7"
-				}
-			]
-		}
-	},
-	"scripts": {
-		"vscode:prepublish": "yarn run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "yarn run compile && yarn run lint",
-		"lint": "eslint .",
-		"package": "vsce package --yarn -o adcomp.vsix"
-	},
-	"devDependencies": {
-		"@types/glob": "^8.1.0",
-		"@types/mocha": "^10.0.10",
-		"@types/node": "22.10.2",
-		"@types/vscode": "^1.75.0",
-		"@typescript-eslint/eslint-plugin": "^8.18.1",
-		"@typescript-eslint/parser": "^8.18.1",
-		"@vscode/test-electron": "^2.4.1",
-		"eslint": "^9.17.0",
-		"eslint-plugin-prettier": "^5.2.1",
-		"glob": "^11.0.0",
-		"mocha": "^11.0.1",
-		"prettier": "^3.4.2",
-		"typescript": "^5.7.2"
-	},
-	"dependencies": {
-		"js-convert-case": "^4.2.0"
-	}
+  "name": "adcomp",
+  "displayName": "adcomp",
+  "description": "Quick way to create AngularDart components",
+  "version": "0.3.0",
+  "publisher": "mstepanov214",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mstepanov214/adcomp"
+  },
+  "engines": {
+    "vscode": "^1.75.0",
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "dart",
+    "angulardart"
+  ],
+  "categories": [
+    "Snippets",
+    "Programming Languages"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "adcomp",
+      "properties": {
+        "adcomp.styleExtension": {
+          "description": "Specifies the extension of the component's style file",
+          "type": "string",
+          "default": "css",
+          "enum": [
+            "css",
+            "scss",
+            "sass"
+          ],
+          "enumDescriptions": [
+            "Use .css as the style file extension.",
+            "Use .scss as the style file extension (for preprocessors).",
+            "Use .sass as the style file extension (for preprocessors)."
+          ]
+        },
+        "adcomp.includeComments": {
+          "description": "Includes a comment section in the generated component",
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "adcomp.createAngularDartComponent",
+        "title": "New AngularDart component"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "adcomp.createAngularDartComponent",
+          "group": "navigation@7"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint .",
+    "package": "vsce package --yarn -o adcomp.vsix"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.10.2",
+    "@types/vscode": "^1.75.0",
+    "@typescript-eslint/eslint-plugin": "^8.18.1",
+    "@typescript-eslint/parser": "^8.18.1",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.17.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "glob": "^11.0.0",
+    "mocha": "^11.0.1",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "js-convert-case": "^4.2.0"
+  }
 }
