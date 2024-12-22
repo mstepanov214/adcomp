@@ -25,8 +25,8 @@
 		"configuration": {
 			"title": "adcomp",
 			"properties": {
-				"adcomp.styleSourceExtension": {
-					"description": "Specifies the extension of the component's style source file",
+				"adcomp.styleExtension": {
+					"description": "Specifies the extension of the component's style file",
 					"type": "string",
 					"default": "css",
 					"enum": [
@@ -35,13 +35,13 @@
 						"sass"
 					],
 					"enumDescriptions": [
-						"Create a component with a .css style extension.",
-						"Create a component with a .scss style extension (if you are using a preprocessor).",
-						"Create a component with a .sass style extension (if you are using a preprocessor)."
+						"Use .css as the style file extension.",
+						"Use .scss as the style file extension (for preprocessors).",
+						"Use .sass as the style file extension (for preprocessors)."
 					]
 				},
-				"adcomp.addComment": {
-					"description": "Add a comment section for the component",
+				"adcomp.includeComments": {
+					"description": "Includes a comment section in the generated component",
 					"type": "boolean",
 					"default": true
 				}

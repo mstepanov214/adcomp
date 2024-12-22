@@ -7,10 +7,10 @@ export function activate(context: vscode.ExtensionContext) {
     'adcomp.createAngularDartComponent',
     async (args: { path: string }) => {
       const name = await vscode.window.showInputBox({
-        placeHolder: 'Enter the component directory name...',
+        placeHolder: 'Enter the name of the component directory...',
         validateInput: (value: string) => {
           if (jsConvert.toSnakeCase(value) !== value) {
-            return 'The component directory name must be a snake case string';
+            return 'The component directory name must be in snake_case format';
           }
           return null;
         },
@@ -19,14 +19,14 @@ export function activate(context: vscode.ExtensionContext) {
         return;
       }
       const config = vscode.workspace.getConfiguration();
-      const styleSourceExtension = config.get<string>('adcomp.styleSourceExtension');
-      const addComment = config.get<boolean>('adcomp.addComment');
+      const styleExtension = config.get<string>('adcomp.styleExtension');
+      const includeComments = config.get<boolean>('adcomp.includeComments');
       
       const dartFileUri = vscode.Uri.file(path.join(args.path, name, `${name}.dart`));
       const fileUris = [
         dartFileUri,
         vscode.Uri.file(path.join(args.path, name, `${name}.html`)),
-        vscode.Uri.file(path.join(args.path, name, `${name}.${styleSourceExtension}`)),
+        vscode.Uri.file(path.join(args.path, name, `${name}.${styleExtension}`)),
       ];
       try {
         await vscode.workspace.fs.stat(vscode.Uri.parse(path.join(args.path, name)));
@@ -47,7 +47,7 @@ export function activate(context: vscode.ExtensionContext) {
         const className = jsConvert.toPascalCase(name);
         const adCompSnippet = new vscode.SnippetString(
           [
-            ...(addComment ? ['/// $1'] : []),
+            ...(includeComments ? ['/// $1'] : []),
             '@Component(',
             `\tselector: '${selector}',`,
             `\ttemplateUrl: '${name}.html',`,
@@ -56,7 +56,7 @@ export function activate(context: vscode.ExtensionContext) {
             '\tproviders: [],',
             ')',
             `class ${className} {`,
-            addComment ? '\t$2' : '\t$1',
+            includeComments ? '\t$2' : '\t$1',
             '}',
           ].join('\n')
         );
