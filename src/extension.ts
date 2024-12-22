@@ -41,7 +41,7 @@ export function activate(context: vscode.ExtensionContext) {
         const textDocument = await vscode.workspace.openTextDocument(dartFileUri);
         const editor = await vscode.window.showTextDocument(textDocument);
         await editor.edit((editBuilder) => {
-          editBuilder.insert(editor.selection.active, "import 'package:angular/angular.dart';\n\n");
+          editBuilder.insert(editor.selection.active, "import 'package:ngdart/angular.dart';\n\n");
         });
         const selector = jsConvert.toKebabCase(name);
         const className = jsConvert.toPascalCase(name);
