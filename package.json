@@ -9,7 +9,8 @@
 		"url": "https://github.com/mstepanov214/adcomp"
 	},
 	"engines": {
-		"vscode": "^1.65.0"
+		"vscode": "^1.75.0",
+		"node": ">=18.0.0"
 	},
 	"keywords": [
 		"dart",
@@ -18,9 +19,6 @@
 	"categories": [
 		"Snippets",
 		"Programming Languages"
-	],
-	"activationEvents": [
-		"onCommand:adcomp.createAngularDartComponent"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -65,23 +63,23 @@
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "yarn run compile && yarn run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js",
+		"lint": "eslint .",
 		"package": "vsce package --yarn -o adcomp.vsix"
 	},
 	"devDependencies": {
-		"@types/glob": "^7.2.0",
-		"@types/mocha": "^9.1.0",
-		"@types/node": "14.x",
-		"@types/vscode": "^1.65.0",
-		"@typescript-eslint/eslint-plugin": "^5.16.0",
-		"@typescript-eslint/parser": "^5.16.0",
-		"@vscode/test-electron": "^2.1.3",
-		"eslint": "^8.11.0",
-		"eslint-plugin-prettier": "^4.0.0",
-		"glob": "^7.2.0",
-		"mocha": "^9.2.2",
-		"typescript": "^4.5.5"
+		"@types/glob": "^8.1.0",
+		"@types/mocha": "^10.0.10",
+		"@types/node": "22.10.2",
+		"@types/vscode": "^1.75.0",
+		"@typescript-eslint/eslint-plugin": "^8.18.1",
+		"@typescript-eslint/parser": "^8.18.1",
+		"@vscode/test-electron": "^2.4.1",
+		"eslint": "^9.17.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"glob": "^11.0.0",
+		"mocha": "^11.0.1",
+		"prettier": "^3.4.2",
+		"typescript": "^5.7.2"
 	},
 	"dependencies": {
 		"js-convert-case": "^4.2.0"
