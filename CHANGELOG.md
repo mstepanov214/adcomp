@@ -1,9 +1,13 @@
 # Change Log
 
-All notable changes to the "adcomp" extension will be documented in this file.
+## v0.3.0
+- Added `adcomp.includeComments` configuration property.
+- Renamed configuration property `adcomp.styleSourceExtension` → `adcomp.styleExtension`. This change simplifies the property name. Update your settings.json file accordingly if you were using the old parameter.
+- Renamed angular package `package:angular/angular.dart` → `package:ngdart/angular.dart` according to the actual version.
+  See [changelog](https://pub.dev/packages/ngdart/changelog#710).
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## v0.2.0
+- Added `adcomp.styleSourceExtension` configuration property.
 
-## [Unreleased]
-
-- Initial release
+## v0.1.0
+- Release v0.1.0
