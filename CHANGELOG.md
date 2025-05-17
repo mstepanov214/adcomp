@@ -1,5 +1,9 @@
 # Change Log
 
+## v0.3.1
+- Updated readme badges.
+- Fixed package.json indents.
+
 ## v0.3.0
 - Added `adcomp.includeComments` configuration property.
 - Renamed configuration property `adcomp.styleSourceExtension` → `adcomp.styleExtension`. This change simplifies the property name. Update your settings.json file accordingly if you were using the old parameter.
