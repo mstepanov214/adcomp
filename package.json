@@ -60,6 +60,12 @@
           "command": "adcomp.createAngularDartComponent",
           "group": "navigation@7"
         }
+      ],
+      "commandPalette": [
+        {
+          "command": "adcomp.createAngularDartComponent",
+          "when": "false"
+        }
       ]
     }
   },
