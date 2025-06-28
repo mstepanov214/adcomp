@@ -1,5 +1,10 @@
 # Change Log
 
+## v0.3.2
+- Fixed empty component name validation.
+- Fixed existing component creation for Windows.
+- Command hidden from the VS Code Command Palette to avoid incorrect behavior.
+
 ## v0.3.1
 - Updated readme badges.
 - Fixed package.json indents.
