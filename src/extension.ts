@@ -23,6 +23,7 @@ async function createAngularDartComponent({ fsPath }: { fsPath: string }) {
   const config = vscode.workspace.getConfiguration();
   const styleExtension = config.get<string>('adcomp.styleExtension');
   const includeComments = config.get<boolean>('adcomp.includeComments');
+  const useLegacyPackageName = config.get<boolean>('adcomp.useLegacyPackageName');
   const componentDirectoryUri = vscode.Uri.joinPath(vscode.Uri.file(fsPath), name);
 
   if (await uriExists(componentDirectoryUri)) {
@@ -46,8 +47,13 @@ async function createAngularDartComponent({ fsPath }: { fsPath: string }) {
     const textDocument = await vscode.workspace.openTextDocument(dartFileUri);
     const editor = await vscode.window.showTextDocument(textDocument);
     await editor.edit((editBuilder) => {
-      editBuilder.insert(editor.selection.active, "import 'package:ngdart/angular.dart';\n\n");
+      const packageName = useLegacyPackageName ? 'angular' : 'ngdart';
+      editBuilder.insert(
+        editor.selection.active,
+        `import 'package:${packageName}/angular.dart';\n\n`
+      );
     });
+    
     const selector = jsConvert.toKebabCase(name);
     const className = jsConvert.toPascalCase(name);
     const adCompSnippet = new vscode.SnippetString(

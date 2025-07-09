@@ -14,7 +14,8 @@
   },
   "keywords": [
     "dart",
-    "angulardart"
+    "angulardart",
+    "ngdart"
   ],
   "categories": [
     "Snippets",
@@ -26,7 +27,7 @@
       "title": "adcomp",
       "properties": {
         "adcomp.styleExtension": {
-          "description": "Specifies the extension of the component's style file",
+          "description": "Specifies the file extension for component styles.",
           "type": "string",
           "default": "css",
           "enum": [
@@ -41,9 +42,14 @@
           ]
         },
         "adcomp.includeComments": {
-          "description": "Includes a comment section in the generated component",
+          "description": "Includes a comment section in the generated component.",
           "type": "boolean",
           "default": true
+        },
+        "adcomp.useLegacyPackageName": {
+          "markdownDescription": "Enables the legacy `angular` package name instead of `ngdart`. Use this option if your project depends on AngularDart version `<= 7.0.2`. See [changelog](https://pub.dev/packages/ngdart/changelog#710).",
+          "type": "boolean",
+          "default": false
         }
       }
     },
