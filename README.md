@@ -19,3 +19,7 @@ The extension supports the following configuration options:
 - `adcomp.includeComments`
   Specifies whether to include a comment section in the generated component.  
   - Default: `true`
+ 
+- `adcomp.useLegacyPackageName`
+  Enables the legacy `angular` package name instead of `ngdart`. Use this option if your project depends on AngularDart version `<= 7.0.2`. See [changelog](https://pub.dev/packages/ngdart/changelog#710).
+  - Default: `false`
