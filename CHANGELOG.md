@@ -1,5 +1,8 @@
 # Change Log
 
+## v0.4.0
+- Added `adcomp.useLegacyPackageName` configuration property (for AngularDart `<= 7.0.2`).
+
 ## v0.3.2
 - Fixed empty component name validation.
 - Fixed existing component creation for Windows.
