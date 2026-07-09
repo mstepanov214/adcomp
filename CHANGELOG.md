@@ -1,5 +1,9 @@
 # Change Log
 
+## v0.4.1
+- Fixed retired shields.io badges.
+- Updated packages.
+
 ## v0.4.0
 - Added `adcomp.useLegacyPackageName` configuration property (for AngularDart `<= 7.0.2`).
 
