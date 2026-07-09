@@ -1,7 +1,6 @@
 # adcomp
-[![vscode-install](https://img.shields.io/badge/vscode-install-blue.svg)](https://marketplace.visualstudio.com/items?itemName=mstepanov214.adcomp)
-![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/mstepanov214.adcomp)
-![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/mstepanov214.adcomp)
+[![version](https://vsmarketplacebadges.dev/version-short/mstepanov214.adcomp.svg)](https://marketplace.visualstudio.com/items?itemName=mstepanov214.adcomp)
+![installs](https://vsmarketplacebadges.dev/installs-short/mstepanov214.adcomp.svg)
 
 This VS Code extension provides an explorer context menu option to create an empty AngularDart component in the desired directory.
 
